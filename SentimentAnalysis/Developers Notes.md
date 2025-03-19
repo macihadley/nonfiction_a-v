@@ -20,5 +20,3 @@ We used the IDE PyCharm to easily run the python code.
 We edited the colors of our sentiment - blue being negative, orange being positive. We choose these colors as they are more visible than red and green, especially for people who might have color-blindness. 
 We then ran all the non-fiction work through the sentiment analysis outputting HTML files with the sentiment analysis within the text.
 We did this by have the code prompt user to select a folder with all the Nonfiction txt files and output all HTML files with the sentiment analysis in a separate output folder. 
-
-We then also ran each text file through the scoring code - to get a visual, graphical output of the sentiment score of each text file. This way you can read the text with the sentiment analysis included. That will allow readers to understand the sentiment in context to the text. Readers will also get a visual of the sentiment in the text in the graph. 
