@@ -1,0 +1,62 @@
+.expand-container {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid black;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Fullscreen Mode */
+.fullscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1000;
+    background: #fdf6e3; /* Light beige background for readability */
+    overflow: auto;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  
+  /* Hide other sections when expanded */
+  .fullscreen + .expand-container {
+    display: none;
+  }
+  
+  /* Title Styling */
+  .expand-container h2 {
+    font-size: 1.5em;
+    font-style: italic;
+    margin-bottom: 10px;
+  }
+  
+  /* Button */
+  .expand-container button {
+    background-color: #800000;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .expand-container button:hover {
+    background-color: #600000;
+  }
+  
+  /* Ensure content in fullscreen mode is styled properly */
+  .fullscreen .expanded-content {
+    max-width: 800px;
+    text-align: left;
+    margin-top: 20px;
+  }

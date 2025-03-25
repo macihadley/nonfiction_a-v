@@ -1,0 +1,65 @@
+#root {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  height: auto;
+}
+
+/* 2 column layout for buttons */
+.nonfiction-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 35px; 
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+  color: black;
+  align-items: stretch;
+  justify-content: center;
+}
+
+/* Container for each button */
+.expand-section {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  border: 2px solid lightgray;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  height: 100%;
+}
+
+/* Title above each button */
+.expand-section h2 {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+  text-align: left;
+  font-style: italic;
+}
+
+/* Button styles */
+.expand-section button {
+  background-color: #800000;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  align-self: flex-start;
+  font-weight: bold;
+}
+
+.expand-section button:hover {
+  background-color: #600000;
+}
+
+/* Responsive: Switch to One Column on Small Screens */
+@media (max-width: 768px) {
+  .nonfiction-container {
+    grid-template-columns: 1fr; /* Single column for small screens */
+  }
+}
