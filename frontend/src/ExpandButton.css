@@ -1,5 +1,5 @@
+/* Containers (each box containing title of nonfiction) */
 .expand-container {
-    background: white;
     padding: 20px;
     border-radius: 10px;
     border: 2px solid black;
@@ -7,32 +7,21 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    transition: all 0.3s ease-in-out;
 }
 
-/* Fullscreen Mode */
+/* Fullscreen mode */
 .fullscreen {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: 1000;
-    background: #fdf6e3; /* Light beige background for readability */
-    overflow: auto;
-    padding: 40px;
-    display: flex;
-    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    background: #fdf6e3; 
+    overflow: hidden;
     align-items: center;
-    justify-content: flex-start;
   }
   
-  /* Hide other sections when expanded */
-  .fullscreen + .expand-container {
-    display: none;
-  }
-  
-  /* Title Styling */
+  /* Title styling */
   .expand-container h2 {
     font-size: 1.5em;
     font-style: italic;
@@ -47,16 +36,29 @@
     border-radius: 5px;
     border: none;
     cursor: pointer;
-    transition: background-color 0.3s ease-in-out;
   }
   
+  /* Make button darker when hovering over button */
   .expand-container button:hover {
     background-color: #600000;
   }
+
+  /* Html file content inside iframe */
+  .expanded-content {
+    height: 100%;
+    width: 100%;
+    max-width: 85%;
+    margin-top: 30px;
+  }
   
-  /* Ensure content in fullscreen mode is styled properly */
-  .fullscreen .expanded-content {
-    max-width: 800px;
-    text-align: left;
-    margin-top: 20px;
+  /* Html file iframe */
+  .expanded-content iframe {    
+    height: 650px; /* Height of html text box */
+    background-color: white;
+  }
+
+  /* When button is pressed, border and shadow are quickly removed. */
+  .expand-container.fullscreen {
+    border: none;
+    box-shadow: none;
   }
