@@ -6,6 +6,13 @@
   height: auto;
 }
 
+/* Override dark background */
+body {
+  background-color: white;
+  margin: 0;
+  padding: 0;
+}
+
 /* 2 column layout for buttons */
 .nonfiction-container {
   display: grid;
