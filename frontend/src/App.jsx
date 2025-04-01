@@ -28,6 +28,7 @@ function App() {
             borderRadius: "5px",
             border: "2px solid #ccc",
             fontSize: "16px",
+            backgroundColor: "white",
           }}
         />
       </div>
