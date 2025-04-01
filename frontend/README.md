@@ -1,12 +1,35 @@
-# React + Vite
+# React Project Setup Guide
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Steps for running code on local terminal:
 
-Currently, two official plugins are available:
+## 1. Unzip the Project
+- Locate the downloaded `.zip` file from Box.
+- Extract (unzip) it to your desired folder.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 2. Open in Code Editor
+- Open the extracted folder in your preferred code editor.
 
-## Expanding the ESLint configuration
+## 3. Install Dependencies
+- Make sure you have **Node.js** and **npm** installed.
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- You can check by running in your terminal:
+  node -v
+  npm -v
+
+- If you don’t have them installed, download both from: https://nodejs.org
+
+## 4. Install Project Dependencies
+- Open a terminal in the root folder of the project.
+- In your terminal run:
+  npm install
+- This will recreate the node_modules folder by installing all necessary packages from package.json.
+
+## 3. Start Development Server
+- In the same terminal run:
+  npm run dev
+- Ctrl + Click on the link in the terminal. This will take you to the React app in your browser.
+
+### Note:
+- If you receive any errors after running npm start, try:
+  rm -rf node_modules
+  npm install
