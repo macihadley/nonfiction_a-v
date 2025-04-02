@@ -46,6 +46,7 @@ function App() {
               key={index}
               title={section.title}
               filename={section.filename}
+              audio={section.audio}
             ></ExpandButton>
           ))
         )}
