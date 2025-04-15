@@ -47,6 +47,7 @@ function App() {
               title={section.title}
               filename={section.filename}
               audio={section.audio}
+              graph={section.graph}
             ></ExpandButton>
           ))
         )}

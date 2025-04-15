@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../ExpandButton.css";
 
-function ExpandButton({ title, filename, audio }) {
+function ExpandButton({ title, filename, audio, graph }) {
   const [isExpanded, setIsExpanded] = useState(false);
   const toggleExpand = () => setIsExpanded(!isExpanded);
 
@@ -11,8 +11,11 @@ function ExpandButton({ title, filename, audio }) {
   // Directly use the audio URL passed from the sections data
   const audioUrl = audio ? audio : null;
 
-  // Add the console.log here to check the audio URL
-  console.log("Audio URL: ", audioUrl);  // This will print the audio URL to the console
+  // Directly use the graph URL passed from the sections data
+  const graphUrl = graph ? graph : null;
+
+  // Add the console.log here to check the audio URL and graph URL
+  console.log("Audio URL: ", audioUrl); // This will print the audio URL to the console
 
   return (
     <div className={`expand-container ${isExpanded ? "fullscreen" : ""}`}>
@@ -23,7 +26,6 @@ function ExpandButton({ title, filename, audio }) {
 
       {isExpanded && (
         <div className="expanded-content">
-
           {/* Show the audio player only if an audio URL exists */}
           {audioUrl ? (
             <div>
@@ -34,7 +36,32 @@ function ExpandButton({ title, filename, audio }) {
               </audio>
             </div>
           ) : (
-            <p style={{ color: "black", textAlign: "center" }}><b>Sorry, the audio for this is not available yet. Check back later!</b></p>
+            <p style={{ color: "black", textAlign: "center" }}>
+              <b>
+                Sorry, the audio for this is not available yet. Check back
+                later!
+              </b>
+            </p>
+          )}
+
+          {/* Display the PNG graph image if graph URl exists */}
+          {graphUrl ? (
+            <div>
+              <img
+                src={graphUrl}
+                alt="Graph"
+                style={{
+                  width: "35%",
+                  height: "auto",
+                  margin: "0 auto",
+                  display: "block",
+                }}
+              />
+            </div>
+          ) : (
+            <p style={{ color: "red", textAlign: "center" }}>
+              No associated graph image.
+            </p>
           )}
 
           {/* Show the file content in iframe, only if the file exists */}
