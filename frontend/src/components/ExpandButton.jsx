@@ -1,8 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../ExpandButton.css";
 
 function ExpandButton({ title, filename, audio, graph }) {
   const [isExpanded, setIsExpanded] = useState(false);
+
+  useEffect(() => {
+    document.body.style.overflow = isExpanded ? "hidden" : "auto";
+    return () => {
+      // clean up if the component ever unmounts
+      document.body.style.overflow = "auto";
+    };
+  }, [isExpanded]);
+
   const toggleExpand = () => setIsExpanded(!isExpanded);
 
   const base = import.meta.env.BASE_URL || "";
@@ -13,9 +22,6 @@ function ExpandButton({ title, filename, audio, graph }) {
 
   // Directly use the graph URL passed from the sections data
   const graphUrl = graph ? graph : null;
-
-  // Add the console.log here to check the audio URL and graph URL
-  console.log("Audio URL: ", audioUrl); // This will print the audio URL to the console
 
   return (
     <div className={`expand-container ${isExpanded ? "fullscreen" : ""}`}>
@@ -44,7 +50,7 @@ function ExpandButton({ title, filename, audio, graph }) {
             </p>
           )}
 
-          {/* Display the PNG graph image if graph URl exists */}
+          {/* Display the PNG graph image if graph URL exists */}
           {graphUrl ? (
             <div>
               <img

@@ -17,7 +17,7 @@
     width: 100%;
     height: 100%;
     background: #fdf6e3; 
-    overflow: hidden;
+    overflow: auto;
     align-items: center;
   }
   
@@ -45,16 +45,18 @@
 
   /* Html file content inside iframe */
   .expanded-content {
-    height: 100%;
+    height: auto;
     width: 100%;
     max-width: 85%;
     margin-top: 30px;
+    padding-bottom: 100px;
   }
   
   /* Html file iframe */
   .expanded-content iframe {    
     height: 650px; /* Height of html text box */
     background-color: white;
+    margin-top: 25px;
   }
 
   /* When button is pressed, border and shadow are quickly removed. */
