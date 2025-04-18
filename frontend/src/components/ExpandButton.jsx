@@ -7,7 +7,6 @@ function ExpandButton({ title, filename, audio, graph }) {
   useEffect(() => {
     document.body.style.overflow = isExpanded ? "hidden" : "auto";
     return () => {
-      // clean up if the component ever unmounts
       document.body.style.overflow = "auto";
     };
   }, [isExpanded]);
@@ -17,11 +16,8 @@ function ExpandButton({ title, filename, audio, graph }) {
   const base = import.meta.env.BASE_URL || "";
   const fileUrl = filename ? `${base}sentiment_html/${filename}` : null;
 
-  // Directly use the audio URL passed from the sections data
-  const audioUrl = audio ? audio : null;
-
-  // Directly use the graph URL passed from the sections data
-  const graphUrl = graph ? graph : null;
+  const audioUrl = audio || null;
+  const graphUrl = graph || null;
 
   return (
     <div className={`expand-container ${isExpanded ? "fullscreen" : ""}`}>
@@ -32,7 +28,7 @@ function ExpandButton({ title, filename, audio, graph }) {
 
       {isExpanded && (
         <div className="expanded-content">
-          {/* Show the audio player only if an audio URL exists */}
+          {/* Audio player */}
           {audioUrl ? (
             <div>
               <h3>Click play to listen while you read!</h3>
@@ -50,9 +46,27 @@ function ExpandButton({ title, filename, audio, graph }) {
             </p>
           )}
 
-          {/* Display the PNG graph image if graph URL exists */}
-          {graphUrl ? (
+          {/* HTML file content via iframe */}
+          {fileUrl ? (
             <div>
+              <iframe
+                src={fileUrl}
+                title={title}
+                width="100%"
+                height="400px"
+                style={{ border: "none", marginTop: "20px" }}
+                className="content-iframe"
+              />
+            </div>
+          ) : (
+            <p style={{ color: "red", textAlign: "center" }}>
+              No associated HTML file.
+            </p>
+          )}
+
+          {/* Graph image */}
+          {graphUrl ? (
+            <div style={{ marginTop: "20px" }}>
               <img
                 src={graphUrl}
                 alt="Graph"
@@ -67,24 +81,6 @@ function ExpandButton({ title, filename, audio, graph }) {
           ) : (
             <p style={{ color: "red", textAlign: "center" }}>
               No associated graph image.
-            </p>
-          )}
-
-          {/* Show the file content in iframe, only if the file exists */}
-          {fileUrl ? (
-            <iframe
-              src={fileUrl}
-              title={title}
-              width="100%"
-              height="400px"
-              style={{
-                border: "none",
-              }}
-              className="content-iframe"
-            />
-          ) : (
-            <p style={{ color: "red", textAlign: "center" }}>
-              No associated HTML file.
             </p>
           )}
         </div>
